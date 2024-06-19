@@ -13,12 +13,6 @@ COPY environment/nginx/rootfilesystem/ /
 EXPOSE 80
 EXPOSE 443
 
-RUN sed -i "s/{PHP_CONTAINER_HOST}/$PHP_CONTAINER_HOST/" /etc/nginx/conf.d/br.conf \
- && sed -i "s/{PHP_CONTAINER_PORT}/$PHP_CONTAINER_PORT/" /etc/nginx/conf.d/br.conf
-
-RUN sed -i "s/{PHP_CONTAINER_HOST}/$PHP_CONTAINER_HOST/" /etc/nginx/conf.d/esla.conf \
- && sed -i "s/{PHP_CONTAINER_PORT}/$PHP_CONTAINER_PORT/" /etc/nginx/conf.d/esla.conf
-
 RUN sed -i "s/{PHP_CONTAINER_HOST}/$PHP_CONTAINER_HOST/" /etc/nginx/conf.d/internal.conf \
  && sed -i "s/{PHP_CONTAINER_PORT}/$PHP_CONTAINER_PORT/" /etc/nginx/conf.d/internal.conf
 
