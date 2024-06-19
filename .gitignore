@@ -1,0 +1,5 @@
+.idea
+environment/nginx/log
+environment/php/log
+vendor
+supervisord.pid

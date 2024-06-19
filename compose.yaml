@@ -1,0 +1,42 @@
+name: nerd-time
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: ./environment/nginx/Dockerfile
+    container_name: nerd-time-nginx
+    ports:
+      - "8001:80"
+      - "8002:443"
+      - "8003:9001"
+    privileged: true
+    volumes:
+      - ./environment/nginx/log:/var/log/nginx
+    command: [ nginx-debug, '-g', 'daemon off;' ]
+  php:
+    build:
+      context: .
+      dockerfile: ./environment/php/Dockerfile
+      target: final
+    container_name: nerd-time-php
+    environment:
+      PHP_IDE_CONFIG: serverName=docker
+      XDEBUG_SESSION: nerd-time
+    privileged: true
+    volumes:
+      - ./:/var/www
+      - ./environment/php/log:/var/log
+  redis:
+    image: redis:latest
+    container_name: nerd-time-redis
+    ports:
+      - "6377:6379"
+    volumes:
+      - ./environment/redis/log:/var/log/redis
+    deploy:
+      resources:
+        limits:
+          memory: 2g
+    logging:
+      driver: none
+    privileged: true

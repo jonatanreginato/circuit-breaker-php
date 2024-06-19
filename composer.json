@@ -1,0 +1,42 @@
+{
+  "name": "jonatanreginato/nerd-time",
+  "description": "NerdTime examples.",
+  "type": "project",
+  "keywords": [
+    "circuit-breaker",
+    "cross-business"
+  ],
+  "homepage": "https://github.com/jonatanreginato/nerd-time",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Jonatan Noronha Reginato",
+      "email": "jonatan.reginato@nuvemshop.com.br",
+      "homepage": "https://github.com/jonatanreginato",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "email": "jonatan.reginato@nuvemshop.com.br"
+  },
+  "require": {
+    "php": "^8.3",
+    "ext-redis": "*",
+    "guzzlehttp/guzzle": "^7.8.1",
+    "ackintosh/ganesha": "^3.1.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Nuvemshop\\NerdTime\\": "src/"
+    }
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+  "config": {
+    "allow-plugins": true,
+    "apcu-autoloader": true,
+    "optimize-autoloader": true,
+    "preferred-install": "dist",
+    "sort-packages": true
+  }
+}
