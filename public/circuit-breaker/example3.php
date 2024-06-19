@@ -20,7 +20,7 @@ $handlers->push($guzzleMiddleware, 'circuit_breaker');
 $client = new GuzzleHttp\Client(['handler' => $handlers]);
 
 try {
-    $response = $client->get('https://dummyjsone.com/user/3');
+    $response = $client->get('https://dummyjson.com/user/3');
     echo "<pre>" . $response->getBody() . "</pre>";
 } catch (Ackintosh\Ganesha\Exception\RejectedException | GuzzleHttp\Exception\GuzzleException $e) {
     echo get_class($e) . ': ' . $e->getMessage();
